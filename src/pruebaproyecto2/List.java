@@ -20,13 +20,6 @@ public class List <T> {
     }
 
     
-    
-    public boolean IsEmpty(){
-        return pfirst == null ;
-        
-    }
-    
-    
  
     public void addEnd(T data){
         Node<T> nuevo = new Node(data) ;
@@ -54,6 +47,11 @@ public class List <T> {
         }
     }
     
+    
+    public boolean IsEmpty(){
+        return pfirst == null ;
+        
+    }
     
     
     public void print(){
