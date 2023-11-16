@@ -6,7 +6,7 @@ package pruebaproyecto2;
 
 /**
  *
- * @author User
+ * @author Juan
  */
 public class List <T> {
     private Node<T> pfirst;
@@ -20,7 +20,10 @@ public class List <T> {
     }
 
     
- 
+    /**
+     * Inserta al final de una lista
+     * @param data valor del nodo
+     */
     public void addEnd(T data){
         Node<T> nuevo = new Node(data) ;
         
@@ -35,6 +38,7 @@ public class List <T> {
         
     }
     
+  
     public void delete(Object user) {
         Node<T> aux = this.getPfirst();
         for (int i = 0; i < this.getSize() -1 ; i++) {
@@ -48,12 +52,18 @@ public class List <T> {
     }
     
     
+    /**
+     * Indica si una lista esta vacia
+     */
     public boolean IsEmpty(){
         return pfirst == null ;
         
     }
     
     
+    /**
+     * Imprime los elementos de la lista 
+     */
     public void print(){
         if (!IsEmpty()){
             Node aux = pfirst;
