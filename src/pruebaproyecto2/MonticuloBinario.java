@@ -21,7 +21,7 @@ public class MonticuloBinario {
      */
     public MonticuloBinario(int maxSize) {
         this.line = new Document[maxSize];
-        this.size = 0;
+        this.size = -1;
     }
 
     /**
@@ -156,5 +156,50 @@ public class MonticuloBinario {
         line[x] = line[y];
         line[y] = aux;
     }
+    
+    /**
+     * Elimina el primer elemento de la cola de impresion
+     */
+    public void eliminarMin(){
+        line[0] = line[this.getSize()];
+        size --;
+        hundir(0);
+    }
+    
+    /**
+     * Devuelve la posicion del hijo que tiene el menor valor
+     * @param x posicion de un nodo
+     */
+    public int hijoMenor(int x){
+        if(rChild(x)>this.getSize()){
+            return lChild(x);
+        }else{
+            if(line[lChild(x)].getTime() < line[rChild(x)].getTime()){
+                return lChild(x);
+            }else{
+                return rChild(x);
+            }
+        }
+    }
+    
+    /**
+     * Envia el documento que esta de primero hasta el final de la cola
+     * @param x posicion de un nodo
+     */
+    public void hundir(int x){
+        while(lChild(x)<this.getSize()){
+            int menor = hijoMenor(x);
+            if(line[x].getTime()>line[menor].getTime()){
+                Document aux = line[x];
+                line[x]=line[menor];
+                line[menor]=aux;
+            }
+            x = menor;
+        }
+    }
+    
+    
+    
+    
     
 }

@@ -38,7 +38,7 @@ public class List <T> {
         
     }
     
-  
+  // Esto hay que revisarlo
     public void delete(Object user) {
         Node<T> aux = this.getPfirst();
         for (int i = 0; i < this.getSize() -1 ; i++) {
