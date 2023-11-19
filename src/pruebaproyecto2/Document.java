@@ -14,9 +14,9 @@ public class Document {
     private String nameDoc;
     private String type; 
     private int size;
-    private LocalTime time;
+    private int time;
     private boolean inLine;
-    private boolean priority;
+    
 
     public Document(String nameDoc, String type, int size) {
         this.nameDoc = nameDoc;
@@ -24,8 +24,26 @@ public class Document {
         this.size = size;
         this.time = time;
         this.inLine = false;
-        this.priority = false;
     }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public boolean isInLine() {
+        return inLine;
+    }
+
+    public void setInLine(boolean inLine) {
+        this.inLine = inLine;
+    }
+
+   
+    
     
     
     
