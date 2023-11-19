@@ -11,10 +11,10 @@ package pruebaproyecto2;
  */
 public class User {
     private String name; 
-    private String priority;
+    private int priority;
     private List <Document> documents;
 
-    public User(String name, String priority) {
+    public User(String name, int priority) {
         this.name = name;
         this.priority = priority;
         this.documents = new List();
