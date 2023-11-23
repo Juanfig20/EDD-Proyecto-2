@@ -24,7 +24,7 @@ public class CSV {
     public static Component areaTexto;
 
     /**
-    * Descripción: La única función de este constructor es la de permitirnos crear un objeto tipo CSV para preservar su información.
+    * Descripción: La única función de este constructor es la de permitirnos crear un objeto tipo CSV.
     * @author Andrés
     * @version 18/11/2023
     */

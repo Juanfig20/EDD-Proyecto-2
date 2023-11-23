@@ -92,9 +92,9 @@ public class MonticuloBinario {
      * @param documento documento que se va a insertar
      * @param tipoUsuario prioridad del usuario
      */
-    public void insertar(boolean prioridad, Document documento, String tipoUsuario){
+    public void insertar(boolean prioridad, Document documento, String tipoUsuario, Master master){
         documento.setInLine(true);
-        documento.setTime((int)ChronoUnit.MINUTES.between(LocalTime.MIN, LocalTime.now()));
+        documento.setTime((int) ((System.currentTimeMillis()/1000) - master.getStartTime()));
         if(prioridad == false){
             if(this.getSize() == line.length){
                 System.out.println("La cola esta llena");

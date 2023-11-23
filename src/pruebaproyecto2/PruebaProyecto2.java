@@ -14,9 +14,9 @@ public class PruebaProyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-       CSV csv = new CSV();
-       csv.FileChooser().print();
+       
+       Master master = new Master();
+       WelcomeMenu welcome = new WelcomeMenu(master);
     }
     
 }
