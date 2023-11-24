@@ -83,4 +83,26 @@ public class Master {
     public void AddDocument_Printer(){
         //¡¡AQUÍ VA LA FUNCIÓN INSERTAR AL MONTÍCULO!!
     }
+    
+    
+    /**
+    * Descripción: Busca un usuario en la lista
+    * @param nombre el nombre del usuario que se esta buscando 
+    * @author Juan 
+    * @version 23/11/2023
+    */
+    public User BuscarUsuario(String nombre){
+        Node <User> pAux = user_list.getPfirst();
+        for (int i = 0; i < user_list.getSize(); i++) {
+            if(pAux.getElement().getName() == nombre){
+                i = user_list.getSize();
+            }else{
+                pAux = pAux.getPnext();
+            }
+                
+        }
+        return pAux.getElement();
+    }
+    
+    
 }

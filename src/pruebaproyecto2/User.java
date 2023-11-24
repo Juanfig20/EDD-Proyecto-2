@@ -75,4 +75,25 @@ public class User {
         this.documents.addEnd(document);
     }
     
+    
+    /**
+    * Descripción: Busca un documento en la lista
+    * @param nombre el nombre del documento que se esta buscando 
+    * @author Juan 
+    * @version 23/11/2023
+    */
+    public Document BuscarDocumento(String nombre){
+        Node <Document> pAux = documents.getPfirst();
+        for (int i = 0; i < documents.getSize(); i++) {
+            if(pAux.getElement().getNameDoc() == nombre){
+                i = documents.getSize();
+            }else{
+                pAux = pAux.getPnext();
+            }
+                
+        }
+        return pAux.getElement();
+    }
+    
+    
 }

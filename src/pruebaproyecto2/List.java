@@ -38,20 +38,29 @@ public class List <T> {
         
     }
     
-  // ¡¡ESTO HAY QUE REVISARLO!!
+  /**
+    * Descripción: Este método elimina un elento de una lista
+    * @param user un usuario
+    * @author Juan 
+    * @version 23/11/2023
+    */
     public void delete(Object user) {
         Node<T> aux = this.getPfirst();
-        for (int i = 0; i < this.getSize() -1 ; i++) {
-            if(aux.getPnext().getElement() == user){
-                aux.setPnext(aux.getPnext().getPnext());
-                size --;       
-            }else{
-                aux = aux.getPnext();
+        if(aux.getElement() == user){
+            this.setPfirst(this.getPfirst().getPnext());
+        }else{
+            for (int i = 0; i < this.getSize() -1 ; i++) {
+                if(aux.getPnext().getElement() == user){
+                    aux.setPnext(aux.getPnext().getPnext());
+                    size --;       
+                }else{
+                    aux = aux.getPnext();
             }
         }
+        }
+        
     }
-    
-    
+      
     /**
      * Indica si una lista esta vacia
      */
