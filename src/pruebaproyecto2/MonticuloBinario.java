@@ -200,7 +200,41 @@ public class MonticuloBinario {
     }
     
     
+  /**
+    * Descripción: Este es un metodo para insertar directamente al monticulo, solo es utilizado para eliminar a traves de un usuario
+    * @param documento el documento a insertar
+    * @author Juan 
+    */
+    public void insertarParaEliminar(Document documento){
+        int libre = this.getSize();
+        line[libre] = documento;
+        size ++;
+                
+        while(line[libre].getTime() < line[father(libre)].getTime()){
+            move(libre , father(libre));
+            libre = father(libre);
+            }
+    }
     
     
+    
+    /**
+    * Descripción: Eliminar un documento del monticulo dado un usuario
+    * @param usuario el usuario dueño del documento a eliminar
+    * @param tabla la Hash Table utilizada en el programa
+    * @author Juan 
+    */
+    public void eliminarPorUsuario(User usuario, HashTable tabla){
+        Document eliminado = tabla.encontrarDocumento(usuario);
+        Document aux = line[0];
+        if(aux != eliminado){ 
+            this.eliminarMin();
+            this.eliminarPorUsuario(usuario, tabla);
+            this.insertarParaEliminar(aux);
+        }else{
+            this.eliminarMin();
+        }
+   
+    }
     
 }
