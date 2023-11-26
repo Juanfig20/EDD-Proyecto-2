@@ -4,9 +4,6 @@
  */
 package pruebaproyecto2;
 
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
-
 /**
  *Plantilla de Monticulo Binario/Cola de impresion 
  * @author Juan 
@@ -88,17 +85,18 @@ public class MonticuloBinario {
     
     /**
      * Inserta un nuevo documento al arreglo
-     * @param prioridad indica si el documento es prioritario o no
      * @param documento documento que se va a insertar
-     * @param tipoUsuario prioridad del usuario
+     * @param usuario un usuario
      */
-    public void insertar(boolean prioridad, Document documento, String tipoUsuario, Master master){
+    public void insertar( Document documento, User usuario, Master master){
+        boolean prioridad = false; //COLOCAR UN JOPTIONPANE PARA DECIR SI ES TRUE O FALSE
         documento.setInLine(true);
         documento.setTime((int) ((System.currentTimeMillis()/1000) - master.getStartTime()));
         if(prioridad == false){
             if(this.getSize() == line.length){
                 System.out.println("La cola esta llena");
             }else{
+                documento.setTime(documento.getTime() * 4 );
                 int libre = this.getSize();
                 line[libre] = documento;
                 size ++;
@@ -111,8 +109,8 @@ public class MonticuloBinario {
             }
                 
         }else{
-            if(tipoUsuario.contains("alta")){
-                documento.setTime(documento.getTime() - 300);
+            if(usuario.getPriority() == 1){
+                documento.setTime(documento.getTime() );
                 int libre = this.getSize();
                 line[libre] = documento;
                 size ++;
@@ -121,8 +119,8 @@ public class MonticuloBinario {
                     move(libre , father(libre));
                     libre = father(libre);
                 }
-            }else if (tipoUsuario.contains("media")){
-                documento.setTime(documento.getTime() - 200);
+            }else if (usuario.getPriority() == 2){
+                documento.setTime(documento.getTime() * 2);
                 int libre = this.getSize();
                 line[libre] = documento;
                 size ++;
@@ -132,7 +130,7 @@ public class MonticuloBinario {
                     libre = father(libre);
                 }
             }else{
-                documento.setTime(documento.getTime() - 100);
+                documento.setTime(documento.getTime() * 3);
                 int libre = this.getSize();
                 line[libre] = documento;
                 size ++;

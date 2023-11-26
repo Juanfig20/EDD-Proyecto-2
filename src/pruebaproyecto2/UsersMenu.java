@@ -151,7 +151,7 @@ public class UsersMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_visualizeUsersActionPerformed
 
     private void deleteDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDocumentActionPerformed
-        //¡¡AQUÍ VA EL ALGORITMO DE ELIMINACIÓN DE UN DOCUMENTO!!
+        master.DeleteDocument();
     }//GEN-LAST:event_deleteDocumentActionPerformed
 
     private void addUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUser1ActionPerformed
@@ -163,7 +163,7 @@ public class UsersMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteUserActionPerformed
 
     private void createDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createDocumentActionPerformed
-        master.AddDocument_Printer();
+        master.NewDocument();
     }//GEN-LAST:event_createDocumentActionPerformed
 
     /**
@@ -178,7 +178,7 @@ public class UsersMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void uploadCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadCSVActionPerformed
-        UsersMenu.master.LoadUsers(); //¡¡CORREGIR!!
+        UsersMenu.master.LoadUsers();
     }//GEN-LAST:event_uploadCSVActionPerformed
 
     /**

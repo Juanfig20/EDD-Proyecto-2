@@ -54,7 +54,6 @@ public class Master {
         CSV csv = new CSV();
         List<User> new_users_list = csv.FileChooser();
         this.user_list = new_users_list;
-        JOptionPane.showMessageDialog(null, "¡Lista de usuarios cargada exitosamente!");
     }
     
     /**
@@ -72,11 +71,59 @@ public class Master {
         User user = new User(user_name,user_priorityNumeric);
         this.user_list.addEnd(user);
         JOptionPane.showMessageDialog(null, "¡Usuario creado exitosamente!");
+        this.user_list.print();
+        System.out.println("\n");
     }
     
+    /**
+    * Descripción: Busca un usuario en la lista
+    * @param nombre el nombre del usuario que se esta buscando 
+    * @author Juan 
+    * @version 23/11/2023
+    */
+    public User BuscarUsuario(String nombre){
+        Node <User> pAux = user_list.getPfirst();
+        for (int i = 0; i < user_list.getSize(); i++) {
+            if(pAux.getElement().getName().equalsIgnoreCase(nombre)){
+                i = user_list.getSize();
+            }else{
+                pAux = pAux.getPnext();
+            }
+                
+        }
+        return pAux.getElement();
+    }
+    
+    /**
+    * Descripción: Solicita un nombre de usuario existente, llama al método delete() de la lista de usuarios del sistema
+    * y le pasa por parámetro el método BuscarUsuario() con el nombre inicialmente solicitado como parámetro
+    * @author Andrés
+    * @version 25/11/2023
+    */
     public void DeleteUser(){
         String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar: ");
-        this.user_list.delete(user_name); //¡¡ESTO HAY QUE CORREGIRLO!!
+        this.user_list.delete(BuscarUsuario(user_name));
+    }
+    /**
+    * Descripción: Solicita un nombre de usuario existente, llama al método BuscarUsuario() con ese parámetro y a través de su retorno
+    * llama al método createDocument()
+    * @author Andrés
+    * @version 25/11/2023
+    */
+    public void NewDocument(){
+        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea crear el documento: ");
+        BuscarUsuario(user_name).createDocument();
+    }
+    
+    /**
+    * Descripción: Solicita un nombre de usuario existente, llama al método BuscarUsuario() con ese parámetro y a través de su retorno
+    * llama al método BorrarDocumento()
+    * @author Andrés
+    * @version 25/11/2023
+    */
+    public void DeleteDocument(){
+        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar el documento: ");
+        BuscarUsuario(user_name).BorrarDocumento();
     }
     
     public void AddDocument_Printer(){

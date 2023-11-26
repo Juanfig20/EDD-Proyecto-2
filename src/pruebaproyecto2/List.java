@@ -4,6 +4,8 @@
  */
 package pruebaproyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Juan
@@ -38,20 +40,29 @@ public class List <T> {
         
     }
     
-  // ¡¡ESTO HAY QUE REVISARLO!!
-    public void delete(Object user) {
+  /**
+    * Descripción: Este método elimina un elento de una lista
+    * @param user un usuario
+    * @author Juan 
+    * @version 23/11/2023
+    */
+    public void delete(Object object) {
         Node<T> aux = this.getPfirst();
-        for (int i = 0; i < this.getSize() -1 ; i++) {
-            if(aux.getPnext().getElement() == user){
-                aux.setPnext(aux.getPnext().getPnext());
-                size --;       
-            }else{
-                aux = aux.getPnext();
+        if(aux.getElement() == object){
+            this.setPfirst(this.getPfirst().getPnext());
+        }else{
+            for (int i = 0; i < this.getSize() -1 ; i++) {
+                if(aux.getPnext().getElement() == object){
+                    aux.setPnext(aux.getPnext().getPnext());
+                    size --;       
+                }else{
+                    aux = aux.getPnext();
             }
         }
+        }
+        JOptionPane.showMessageDialog(null, "Eliminado exitosamente.");
     }
-    
-    
+      
     /**
      * Indica si una lista esta vacia
      */

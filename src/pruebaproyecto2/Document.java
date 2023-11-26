@@ -42,9 +42,12 @@ public class Document {
         this.inLine = inLine;
     }
 
-   
-    
-    
-    
-    
+    public String getNameDoc() {
+        return nameDoc;
+    }
+
+    public void setNameDoc(String nameDoc) {
+        this.nameDoc = nameDoc;
+    }
+
 }
