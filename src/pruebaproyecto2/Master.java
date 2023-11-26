@@ -64,10 +64,9 @@ public class Master {
     */
     public void NewUser(){
         String user_name = JOptionPane.showInputDialog(null, "Indique el nombre del nuevo usuario: ");
-        String user_priority = JOptionPane.showInputDialog(null, "Indique su valor de prioridad (1; 2 o 3): ");
-        System.out.println(user_priority);
-        while (user_priority != "1" && user_priority != "2" && user_priority != "3"){
-            user_priority = JOptionPane.showInputDialog(null, "Por favor, ingrese un valor numérico entero entre 1 y 3: ");
+        String user_priority = JOptionPane.showInputDialog(null, "Indique su valor de prioridad (1; 2 o 3): ").trim();
+        while (!"1".equals(user_priority) && !"2".equals(user_priority) && !"3".equals(user_priority)){
+            user_priority = JOptionPane.showInputDialog(null, "Por favor, ingrese un valor numérico entero entre 1 y 3: ").trim();
         }
         int user_priorityNumeric = Integer.parseInt(user_priority);
         User user = new User(user_name,user_priorityNumeric);
