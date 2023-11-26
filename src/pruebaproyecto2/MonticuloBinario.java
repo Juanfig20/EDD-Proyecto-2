@@ -4,6 +4,8 @@
  */
 package pruebaproyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *Plantilla de Monticulo Binario/Cola de impresion 
  * @author Juan 
@@ -18,7 +20,7 @@ public class MonticuloBinario {
      */
     public MonticuloBinario(int maxSize) {
         this.line = new Document[maxSize];
-        this.size = -1;
+        this.size = 0;
     }
 
     /**
@@ -89,12 +91,19 @@ public class MonticuloBinario {
      * @param usuario un usuario
      */
     public void insertar( Document documento, User usuario, Master master){
-        boolean prioridad = false; //COLOCAR UN JOPTIONPANE PARA DECIR SI ES TRUE O FALSE
+        String priority_selection = JOptionPane.showInputDialog(null, "¿Desea emplear sistema de prioridad para encolar el documento? \n Ingrese si/no: ").trim().toLowerCase();        
+        while(!priority_selection.equalsIgnoreCase("si") && !priority_selection.equalsIgnoreCase("no")){
+            priority_selection = JOptionPane.showInputDialog(null, "Ingrese 'si' o 'no': ").trim().toLowerCase();
+        }
+        boolean prioridad = false;
+        if(priority_selection.equals("si")){
+            prioridad = true;
+        }
         documento.setInLine(true);
         documento.setTime((int) ((System.currentTimeMillis()/1000) - master.getStartTime()));
         if(prioridad == false){
             if(this.getSize() == line.length){
-                System.out.println("La cola esta llena");
+                System.out.println("La cola esta llena.");
             }else{
                 documento.setTime(documento.getTime() * 4 );
                 int libre = this.getSize();
@@ -142,6 +151,7 @@ public class MonticuloBinario {
             }
             
         }
+        JOptionPane.showMessageDialog(null, "Se ha enviado el documento a la impresora.");
     }
     
     /**
@@ -162,6 +172,7 @@ public class MonticuloBinario {
         line[0] = line[this.getSize()];
         size --;
         hundir(0);
+        JOptionPane.showMessageDialog(null, "Cola de impresión reducida en 1.");
     }
     
     /**

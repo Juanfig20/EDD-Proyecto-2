@@ -71,8 +71,6 @@ public class Master {
         User user = new User(user_name,user_priorityNumeric);
         this.user_list.addEnd(user);
         JOptionPane.showMessageDialog(null, "¡Usuario creado exitosamente!");
-        this.user_list.print();
-        System.out.println("\n");
     }
     
     /**
@@ -84,7 +82,7 @@ public class Master {
     public User BuscarUsuario(String nombre){
         Node <User> pAux = user_list.getPfirst();
         for (int i = 0; i < user_list.getSize(); i++) {
-            if(pAux.getElement().getName().equalsIgnoreCase(nombre)){
+            if(pAux.getElement().getName().toLowerCase().equalsIgnoreCase(nombre)){
                 i = user_list.getSize();
             }else{
                 pAux = pAux.getPnext();
@@ -101,7 +99,7 @@ public class Master {
     * @version 25/11/2023
     */
     public void DeleteUser(){
-        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar: ");
+        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar: ").toLowerCase();
         this.user_list.delete(BuscarUsuario(user_name));
     }
     /**
@@ -122,11 +120,63 @@ public class Master {
     * @version 25/11/2023
     */
     public void DeleteDocument(){
-        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar el documento: ");
+        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar el documento: ").toLowerCase();
         BuscarUsuario(user_name).BorrarDocumento();
     }
     
+    /**
+    * Descripción: Solicita un nombre de usuario y un documento de su pertenencia existente, llama
+    * al método BuscarUsuario() y BuscarDocumento() con esos parámetros y utiliza sus retornos para
+    * llamar al método insertar() de la lista_impresion de tipo MonticuloBinario para agregar el
+    * documento al montículo.
+    * @author Andrés
+    * @version 25/11/2023
+    */
     public void AddDocument_Printer(){
-        //¡¡AQUÍ VA LA FUNCIÓN INSERTAR AL MONTÍCULO!!
+        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea encolar un documento: ").toLowerCase();
+        User usuario = BuscarUsuario(user_name);
+        String document_name = JOptionPane.showInputDialog(null, "Ingrese el documento de su pertenencia que desea encolar: ").toLowerCase();
+        Document documento = usuario.BuscarDocumento(document_name);
+        this.lista_impresion.insertar(documento, usuario, this);
+    }
+    
+    /**
+    * Descripción: Este método interpreta la información dentro del parámetro user_list y la traduce para colocarla dentro de un string
+    * llamado users_string que contiene la información de los usuarios dentro de la lista, así como la de sus documentos creados, de forma
+    * amigable para la lectura.
+    * @author Andrés
+    * @version 26/11/2023
+    * Tipo de retorno: Un String llamado users_string que contiene la información anteriormente mencionada.
+    */
+    public String UsersString(){
+        String users_string = "Aún no hay usuarios registrados.";
+        if (!this.user_list.IsEmpty()){
+            users_string = "Usuarios:\n";
+            Node<User> aux = this.user_list.getPfirst();
+            for (int i = 0; i < this.user_list.getSize(); i++) {
+                users_string += "\n"+(i+1)+"- "+aux.getElement().getName();
+                String documents_string = "\nEste usuario aún no ha creado documentos.";
+                if (!aux.getElement().getDocuments().IsEmpty()){
+                    documents_string = "\nDocumentos: ";
+                    Node<Document> aux2 = aux.getElement().getDocuments().getPfirst();
+                    for (int j = 0; j < aux.getElement().getDocuments().getSize(); j++) {
+                        documents_string += "\n- "+aux2.getElement().getNameDoc()+"."+aux2.getElement().getType()+": "+aux2.getElement().getInLineString();
+                        aux2 = aux2.getPnext();
+                    }
+                }
+                users_string += documents_string+"\n";
+                aux = aux.getPnext();
+            }
+        }
+        return users_string;
+    }
+    
+    /**
+    * Descripción: Este método ejecuta el método eliminarMin() sobre la cola de impresión del sistema
+    * @author Andrés
+    * @version 26/11/2023
+    */
+    public void Desencolar(){
+        this.lista_impresion.eliminarMin();
     }
 }

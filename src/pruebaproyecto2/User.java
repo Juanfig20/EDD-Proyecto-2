@@ -86,7 +86,7 @@ public class User {
     public Document BuscarDocumento(String nombre){
         Node <Document> pAux = documents.getPfirst();
         for (int i = 0; i < documents.getSize(); i++) {
-            if(pAux.getElement().getNameDoc().equals(nombre)){
+            if(pAux.getElement().getNameDoc().toLowerCase().equals(nombre)){
                 i = documents.getSize();
             }else{
                 pAux = pAux.getPnext();
@@ -103,7 +103,7 @@ public class User {
     * @version 25/11/2023
     */
     public void BorrarDocumento(){
-        String doc_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento que desea eliminar: ");
+        String doc_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento que desea eliminar: ").toLowerCase();
         this.documents.delete(BuscarDocumento(doc_name));
     }
 }

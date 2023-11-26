@@ -130,7 +130,7 @@ public class PrinterMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void printFromLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printFromLineActionPerformed
-        //¡¡AQUÍ VA DESENCOLAR IMPRIMIENDO!!
+        master.Desencolar();
     }//GEN-LAST:event_printFromLineActionPerformed
 
     private void visualizePrinterLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizePrinterLineActionPerformed
@@ -142,7 +142,7 @@ public class PrinterMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_visualizePrinterTreeActionPerformed
 
     private void deleteDocumentFromPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDocumentFromPrinterActionPerformed
-        //¡¡AQUÍ VA DESENCOLAR SIN IMPRIMIR!!
+        master.Desencolar();
     }//GEN-LAST:event_deleteDocumentFromPrinterActionPerformed
 
     /**

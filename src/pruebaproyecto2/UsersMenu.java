@@ -5,6 +5,8 @@
  */
 package pruebaproyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrés
@@ -21,7 +23,7 @@ public class UsersMenu extends javax.swing.JFrame {
     */
     public UsersMenu(Master master) {
         initComponents();
-        UsersMenu.setMaster(master);
+        setMaster(master);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -52,9 +54,10 @@ public class UsersMenu extends javax.swing.JFrame {
         addUser1 = new javax.swing.JButton();
         visualizeUsers = new javax.swing.JButton();
         uploadCSV = new javax.swing.JButton();
-        deleteDocument = new javax.swing.JButton();
         back = new javax.swing.JButton();
         createDocument = new javax.swing.JButton();
+        printDocument = new javax.swing.JButton();
+        deleteDocument = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,7 +76,7 @@ public class UsersMenu extends javax.swing.JFrame {
                 deleteUserActionPerformed(evt);
             }
         });
-        Wallpaper.add(deleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, 50));
+        Wallpaper.add(deleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 50));
 
         Wallpaper_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Users.png"))); // NOI18N
         Wallpaper.add(Wallpaper_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 520, 360));
@@ -86,7 +89,7 @@ public class UsersMenu extends javax.swing.JFrame {
                 addUser1ActionPerformed(evt);
             }
         });
-        Wallpaper.add(addUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 140, 50));
+        Wallpaper.add(addUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 140, 50));
 
         visualizeUsers.setBackground(new java.awt.Color(204, 204, 204));
         visualizeUsers.setForeground(new java.awt.Color(0, 0, 0));
@@ -97,7 +100,7 @@ public class UsersMenu extends javax.swing.JFrame {
                 visualizeUsersActionPerformed(evt);
             }
         });
-        Wallpaper.add(visualizeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 180, 50));
+        Wallpaper.add(visualizeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 180, 50));
 
         uploadCSV.setBackground(new java.awt.Color(204, 204, 204));
         uploadCSV.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,18 +110,7 @@ public class UsersMenu extends javax.swing.JFrame {
                 uploadCSVActionPerformed(evt);
             }
         });
-        Wallpaper.add(uploadCSV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 160, 50));
-
-        deleteDocument.setBackground(new java.awt.Color(204, 204, 204));
-        deleteDocument.setForeground(new java.awt.Color(0, 0, 0));
-        deleteDocument.setText("Eliminar un Documento");
-        deleteDocument.setToolTipText("");
-        deleteDocument.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteDocumentActionPerformed(evt);
-            }
-        });
-        Wallpaper.add(deleteDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 50));
+        Wallpaper.add(uploadCSV, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 160, 50));
 
         back.setBackground(new java.awt.Color(204, 204, 204));
         back.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,7 +131,29 @@ public class UsersMenu extends javax.swing.JFrame {
                 createDocumentActionPerformed(evt);
             }
         });
-        Wallpaper.add(createDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 180, 50));
+        Wallpaper.add(createDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 180, 50));
+
+        printDocument.setBackground(new java.awt.Color(204, 204, 204));
+        printDocument.setForeground(new java.awt.Color(0, 0, 0));
+        printDocument.setText("Enviar Documento a Impresora");
+        printDocument.setToolTipText("");
+        printDocument.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printDocumentActionPerformed(evt);
+            }
+        });
+        Wallpaper.add(printDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 230, 50));
+
+        deleteDocument.setBackground(new java.awt.Color(204, 204, 204));
+        deleteDocument.setForeground(new java.awt.Color(0, 0, 0));
+        deleteDocument.setText("Eliminar un Documento");
+        deleteDocument.setToolTipText("");
+        deleteDocument.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteDocumentActionPerformed(evt);
+            }
+        });
+        Wallpaper.add(deleteDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 180, 50));
 
         getContentPane().add(Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 450));
 
@@ -147,7 +161,7 @@ public class UsersMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void visualizeUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizeUsersActionPerformed
-        //¡¡AQUÍ VA EL ALGORITMO PARA VER USUARIOS CON SUS DOCUMENTOS!!
+        JOptionPane.showMessageDialog(null, master.UsersString(), "Usuarios Registrados", HEIGHT);
     }//GEN-LAST:event_visualizeUsersActionPerformed
 
     private void deleteDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDocumentActionPerformed
@@ -180,6 +194,10 @@ public class UsersMenu extends javax.swing.JFrame {
     private void uploadCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadCSVActionPerformed
         UsersMenu.master.LoadUsers();
     }//GEN-LAST:event_uploadCSVActionPerformed
+
+    private void printDocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printDocumentActionPerformed
+        master.AddDocument_Printer();
+    }//GEN-LAST:event_printDocumentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +242,7 @@ public class UsersMenu extends javax.swing.JFrame {
     private javax.swing.JButton createDocument;
     private javax.swing.JButton deleteDocument;
     private javax.swing.JButton deleteUser;
+    private javax.swing.JButton printDocument;
     private javax.swing.JButton uploadCSV;
     private javax.swing.JButton visualizeUsers;
     // End of variables declaration//GEN-END:variables
