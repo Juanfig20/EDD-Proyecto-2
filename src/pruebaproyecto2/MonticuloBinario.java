@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 /**
  *Plantilla de Monticulo Binario/Cola de impresion 
  * @author Juan 
+ * El atributo size del Monticulo va a representar los elementos
+ * que contiene el monticulo y la posicion vacia en la cual va a ir el proximo elemento que se inserte
  */
 public class MonticuloBinario {
     private Document[] line;
