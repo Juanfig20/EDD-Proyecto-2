@@ -21,7 +21,7 @@ public class PrinterMenu extends javax.swing.JFrame {
     */
     public PrinterMenu(Master master) {
         initComponents();
-        PrinterMenu.setMaster(master);
+        setMaster(master);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -134,11 +134,12 @@ public class PrinterMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_printFromLineActionPerformed
 
     private void visualizePrinterLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizePrinterLineActionPerformed
-        //¡¡AQUÍ VA EL ALGORITMO PARA VER COLA DE IMPRESIÓN!!
+        master.ShowArray();
     }//GEN-LAST:event_visualizePrinterLineActionPerformed
 
     private void visualizePrinterTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizePrinterTreeActionPerformed
-        //¡¡AQUÍ VA EL ALGORITMO PARA VER EL ÁRBOL!!
+//        this.setVisible(false);
+//        new MonticuloBinario_Grafico(master);
     }//GEN-LAST:event_visualizePrinterTreeActionPerformed
 
     private void deleteDocumentFromPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDocumentFromPrinterActionPerformed
