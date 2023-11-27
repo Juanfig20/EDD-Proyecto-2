@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author User, Andrés
+ * @author Juan, Andrés
  */
 public class User {
     private String name; 
@@ -73,6 +73,7 @@ public class User {
         }
         Document document = new Document(nameDoc,type,sizeInt);
         this.documents.addEnd(document);
+        JOptionPane.showMessageDialog(null, "¡Documento creado exitosamente!");
     }
     
     
@@ -85,7 +86,7 @@ public class User {
     public Document BuscarDocumento(String nombre){
         Node <Document> pAux = documents.getPfirst();
         for (int i = 0; i < documents.getSize(); i++) {
-            if(pAux.getElement().getNameDoc() == nombre){
+            if(pAux.getElement().getNameDoc().toLowerCase().equals(nombre)){
                 i = documents.getSize();
             }else{
                 pAux = pAux.getPnext();
@@ -95,5 +96,14 @@ public class User {
         return pAux.getElement();
     }
     
-    
+    /**
+    * Descripción: Solicita un nombre de documento existente, llama al método delete() de la lista de usuarios del sistema
+    * y le pasa por parámetro el método BuscarDocumento() con el nombre inicialmente solicitado como parámetro
+    * @author Andrés
+    * @version 25/11/2023
+    */
+    public void BorrarDocumento(){
+        String doc_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento que desea eliminar: ").toLowerCase();
+        this.documents.delete(BuscarDocumento(doc_name));
+    }
 }

@@ -4,6 +4,8 @@
  */
 package pruebaproyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Juan
@@ -44,13 +46,13 @@ public class List <T> {
     * @author Juan 
     * @version 23/11/2023
     */
-    public void delete(Object user) {
+    public void delete(Object object) {
         Node<T> aux = this.getPfirst();
-        if(aux.getElement() == user){
+        if(aux.getElement() == object){
             this.setPfirst(this.getPfirst().getPnext());
         }else{
             for (int i = 0; i < this.getSize() -1 ; i++) {
-                if(aux.getPnext().getElement() == user){
+                if(aux.getPnext().getElement() == object){
                     aux.setPnext(aux.getPnext().getPnext());
                     size --;       
                 }else{
@@ -58,7 +60,7 @@ public class List <T> {
             }
         }
         }
-        
+        JOptionPane.showMessageDialog(null, "Eliminado exitosamente.");
     }
       
     /**

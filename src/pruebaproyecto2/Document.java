@@ -50,9 +50,25 @@ public class Document {
         this.nameDoc = nameDoc;
     }
 
+
     
-    
-    
-    
+    public String getType() {
+        return type;
+    }
+
+    /**
+    * Descripción: Este método interpreta el parámetro inLine y lo traduce en un String que facilita su lectura.
+    * @author Andrés
+    * @version 26/11/2023
+    * Tipo de retorno: Un String llamado inLineString.
+    */
+    public String getInLineString(){
+        String inLineString = "En cola de impresión.";
+        if(!this.inLine){
+            inLineString = "No ha sido enviado a imprimir.";
+        }
+        return inLineString;
+    }
+
     
 }

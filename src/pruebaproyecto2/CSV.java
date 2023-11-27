@@ -116,6 +116,7 @@ public class CSV {
             User user = new User(user_name,user_priority);
             usersList.addEnd(user);
         }
+    JOptionPane.showMessageDialog(null, "¡Lista de usuarios cargada exitosamente!");
     return usersList;
     }
 }
