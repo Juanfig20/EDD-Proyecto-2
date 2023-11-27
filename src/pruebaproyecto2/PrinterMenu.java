@@ -5,6 +5,8 @@
  */
 package pruebaproyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrés
@@ -140,6 +142,7 @@ public class PrinterMenu extends javax.swing.JFrame {
     private void visualizePrinterTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizePrinterTreeActionPerformed
 //        this.setVisible(false);
 //        new MonticuloBinario_Grafico(master);
+          JOptionPane.showMessageDialog(null, "¡ERROR al mostrar el arbol!");
     }//GEN-LAST:event_visualizePrinterTreeActionPerformed
 
     private void deleteDocumentFromPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDocumentFromPrinterActionPerformed
