@@ -75,8 +75,11 @@ public class MonticuloBinario {
     }
     
     /**
-     * Imprime el arreglo
-     */
+    * Descripción: Este método interpreta el arreglo del montículo y lo reestructura en un string de fácil comprensión.
+    * @author Juan, Andrés
+    * @version 26/11/2023
+    * Tipo de retorno: Un string llamado array_string que contiene los documentos del montículo.
+    */
     public String verArreglo(){
         String array_string = "Aún no hay documentos a imprimir.";
         if (this.getSize() != 0){
