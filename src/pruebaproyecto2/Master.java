@@ -179,4 +179,13 @@ public class Master {
     public void Desencolar(){
         this.lista_impresion.eliminarMin();
     }
+    
+    /**
+    * Descripción: Este método ejecuta el verArreglo() sobre la cola de impresión del sistema para mostrarlo en pantalla.
+    * @author Andrés
+    * @version 26/11/2023
+    */
+    public void ShowArray(){
+        JOptionPane.showMessageDialog(null, this.lista_impresion.verArreglo(), "Cola de Impresión", 1);
+    }
 }

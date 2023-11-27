@@ -77,12 +77,15 @@ public class MonticuloBinario {
     /**
      * Imprime el arreglo
      */
-    public void verArreglo(){
-        System.out.println("--Arreglo--");
-        for (int i = 0; i < this.getSize(); i++) {
-            System.out.println(line[i] + "|");
+    public String verArreglo(){
+        String array_string = "Aún no hay documentos a imprimir.";
+        if (this.getSize() != 0){
+            array_string = "| ";
+            for (int i = 0; i < this.getSize(); i++) {
+                array_string += (line[i].getNameDoc()+"."+line[i].getType() + " | ");
+            }
         }
-        System.out.println("");
+        return array_string;
     }
     
     /**
