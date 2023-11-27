@@ -142,7 +142,7 @@ public class PrinterMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_visualizePrinterTreeActionPerformed
 
     private void deleteDocumentFromPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDocumentFromPrinterActionPerformed
-        master.Desencolar();
+        master.borrarDocumentodeCola();
     }//GEN-LAST:event_deleteDocumentFromPrinterActionPerformed
 
     /**

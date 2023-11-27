@@ -8,7 +8,7 @@ package pruebaproyecto2;
  * @author Juan
  */
 public class HashTable{
-    private int size = 23;
+    private int size = 999;
     private HashNode[]table;
     private HashNode par;
 

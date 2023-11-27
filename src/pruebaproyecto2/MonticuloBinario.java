@@ -169,7 +169,7 @@ public class MonticuloBinario {
      * Elimina el primer elemento de la cola de impresion
      */
     public void eliminarMin(){
-        line[0] = line[this.getSize()];
+        line[0] = line[this.getSize() -1];
         size --;
         hundir(0);
         JOptionPane.showMessageDialog(null, "Cola de impresión reducida en 1.");
@@ -235,14 +235,28 @@ public class MonticuloBinario {
     public void eliminarPorUsuario(User usuario, HashTable tabla){
         Document eliminado = tabla.encontrarDocumento(usuario);
         Document aux = line[0];
-        if(aux != eliminado){ 
-            this.eliminarMin();
-            this.eliminarPorUsuario(usuario, tabla);
+        if(aux!=eliminado){
+            this.eliminarMinParaUsuario();
+            this.eliminarPorUsuario(usuario,tabla);
             this.insertarParaEliminar(aux);
         }else{
             this.eliminarMin();
         }
+      
    
     }
+    
+    
+    /**
+    * Descripción: Esta funcion hace lo mismo que eliminarMin(), se hizo solo para que no apareciera el mensaje al momento de eliminar por un usuario
+    * @author Juan 
+    */
+   public void eliminarMinParaUsuario(){
+        line[0] = line[this.getSize() -1];
+        size --;
+        hundir(0);
+ 
+    }
+    
     
 }

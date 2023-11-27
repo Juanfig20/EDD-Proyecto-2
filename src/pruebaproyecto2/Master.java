@@ -19,6 +19,7 @@ public class Master {
     private long startTime = (System.currentTimeMillis())/1000;
     private List<User> user_list = new List<>();
     private MonticuloBinario lista_impresion = new MonticuloBinario(1000);
+    private HashTable tabla = new HashTable();
 
     public Master() {
     }
@@ -138,6 +139,8 @@ public class Master {
         String document_name = JOptionPane.showInputDialog(null, "Ingrese el documento de su pertenencia que desea encolar: ").toLowerCase();
         Document documento = usuario.BuscarDocumento(document_name);
         this.lista_impresion.insertar(documento, usuario, this);
+        this.tabla.insertarHash(usuario, documento);
+
     }
     
     /**
@@ -179,4 +182,19 @@ public class Master {
     public void Desencolar(){
         this.lista_impresion.eliminarMin();
     }
+    
+    
+    
+    /**
+    * Descripción: Con este metodo se ejecuta eliminarPorUsuario para eliminar un documento de la cola dado un usuario
+    * @author Juan
+    * @version 26/11/2023
+    */
+    public void borrarDocumentodeCola(){
+        String user_name = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario que desea eliminar el documento: ").toLowerCase();
+        this.lista_impresion.eliminarPorUsuario(BuscarUsuario(user_name), tabla);
+    }
+    
+    
+    
 }
